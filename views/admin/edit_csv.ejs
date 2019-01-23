@@ -1,0 +1,35 @@
+<%- include('../_layouts/adminheader') %>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2 class="page-title">Edit a CSV</h2>
+        <a href="/admin/csvupload/" class="btn btn-primary">Back to all Courses</a>
+        <br><br>
+
+        <form method="post" action="/admin/csvupload/edit-csv/<%= id %>" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="">Course Id</label>
+                <input type="text" class="form-control" value="<%= course_id %>" name="course_id" required>
+            </div>
+
+            <div class="form-group">
+                <label for="">Course Name</label>
+                <input type="text" class="form-control" value="<%= course_name %>" name="course_name" required>
+            </div>
+            <div class="form-group">
+                <label for="">Course Fees</label>
+                <input type="text" class="form-control" value="<%= course_fees %>" name="course_fees" required>
+            </div>
+            <div class="form-group">
+                <label for="">Faculty Name</label>
+                <input type="text" class="form-control" value="<%= faculty_name %>" name="faculty_name"
+                    required>
+            </div>         
+
+            <input type="submit" value="Submit" class="btn btn-primary">
+        </form>
+    </div>
+</div>
+
+
+<%- include('../_layouts/adminfooter') %>

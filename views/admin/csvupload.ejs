@@ -1,0 +1,64 @@
+<%- include('../_layouts/adminheader') %>
+
+<h2 class="page-title">CSV UPLOAD</h2>
+<a href="/admin/csvupload/add-csv" class="btn btn-primary">Add a new Csv File</a>
+<br><br>
+
+<% if (count > 0) { %>
+
+<table id="example" class="display" style="width:100%">
+
+    <thead>
+        <tr>
+            <th>Course Id</th>
+            <th>Course Name</th>
+            <th>Course Fees</th>
+            <th>Faculty Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% courses.forEach(function(course){ %>
+        <tr>
+            <td>
+                <%= course.course_id %>
+            </td>
+            <td>
+                <%= course.course_name %>
+            </td>
+            <td>
+                <%= course.course_fees %>
+            </td>
+            <td>
+                <%= course.faculty_name %>
+            </td>
+
+            <td><a href="/admin/csvupload/edit-csv/<%= course._id %>">Edit</a></td>
+            <td><a class="confirmdeletion" href="/admin/csvupload/delete-csv/<%= course._id %>">Delete</a></td>
+            
+        </tr>
+        <% }); %>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Course Id</th>
+            <th>Course Name</th>
+            <th>Course Fees</th>
+            <th>Faculty Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </tfoot>
+</table>
+
+<% } else {%>
+<h3 class="text-center">There are no CSV File</h3>
+<% }%>
+
+<!-- <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script> -->
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
+
+<%- include('../_layouts/adminfooter') %>
